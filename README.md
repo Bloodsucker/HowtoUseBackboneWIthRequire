@@ -1,6 +1,8 @@
 Howto entender esto
 ===================
 
+Primero debes entender AMD, require.js y Backbone y haberte leído el documento de buenas prácticas.
+
 Para ejecutar el ejemplo se necesita PHP debido a la API ficticia que se ha creado. Dicho servidor PHP tiene un tiempo de retardo para simular tardanza y que se vea por qué partes se están cargando.
 
 Primera ejecución:
