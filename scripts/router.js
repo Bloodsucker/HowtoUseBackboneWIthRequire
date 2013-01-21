@@ -7,8 +7,8 @@ define([
 	var AppRouter = Backbone.Router.extend({
 		routes: {
 			'!/:shopName/Dashboard/': 'showDashboard',
-			'!/:shopName/Clientes/': 'showClients',
-			'!/:shopName/Presupuestos/': 'showBudgets',
+			/*'!/:shopName/Clientes/': 'showClients',
+			'!/:shopName/Presupuestos/': 'showBudgets',*/
 			'*other': 'otherRoute',
 		},
 	   
