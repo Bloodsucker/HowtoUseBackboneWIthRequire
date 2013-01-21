@@ -1,5 +1,8 @@
 Howto entender esto
 ===================
+
+Para ejecutar el ejemplo se necesita PHP debido a la API ficticia que se ha creado. Dicho servidor PHP tiene un tiempo de retardo para simular tardanza y que se vea por qué partes se están cargando.
+
 Primera ejecución:
 
 ```html
@@ -30,20 +33,33 @@ showDashboard: function(shopName){
 	//Render Dashboard section of shopName
 	console.log('shopName: '+shopName+' - Dashboard');
 
-	//Modelo de la vista
+	//Modelo de la vista - datos
 	var dashboard = new Dashboard({
 		shopName: shopName
 	});
 
-	//Vista
+	//Vista - eventos y DOM
 	new ShopDashboard({
 		model: dashboard
 	}).loading();
 
+	//Descargamos de internet el modelo y fuerza la actualización de la vista relacionada.
 	dashboard.fetch();
 }
 ```
 
-Así mismo en el renderizado del Dashboard se carga una vista independiente, una subsección:
+Así momento del renderizado del Dashboard se carga una vista independiente, una subsección:
 
     scripts/View/DashboardRepairGraph.js
+
+El funcionamiento es el mismo sólo que el modelo ya lo tenemos descargardo. En este caso espera una Collection de Repair.js
+
+    scripts/Collection/Repairs.js
+
+Por ejemplo:
+
+```javascript
+	this.graph1 = new DashboardRepairGraph({
+		collection: this.model.get('users')
+	});
+```
